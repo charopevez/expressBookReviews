@@ -48,6 +48,10 @@ regd_users.post("/login", (req, res) => {
         expiresIn: "1h",
     });
 
+    req.session.authorization = {
+        accessToken, username
+    }
+
     return res
         .status(200)
         .json({ message: "Login successful", token: accessToken });

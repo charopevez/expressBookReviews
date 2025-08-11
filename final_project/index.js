@@ -31,8 +31,8 @@ const PORT = 5000;
 
 app.use("/customer", customer_routes);
 app.use("/", genl_routes);
-app.get("/books", (req, res) => {
-  res.status(200).json(books);
+app.get("/books", async (req, res) => {
+    res.status(200).json(books);
 });
 
 app.listen(PORT, () => console.log("Server is running"));

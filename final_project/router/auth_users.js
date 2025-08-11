@@ -68,7 +68,7 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
     }
 
     try {
-        let decoded = jwt.verify(token.split(" ")[1], "secret_key");
+        let decoded = jwt.verify(token.split(" ")[1], "fingerprint_customer");
         let username = decoded.username;
 
         if (!books[isbn]) {
@@ -98,7 +98,7 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
     }
 
     try {
-        let decoded = jwt.verify(token.split(" ")[1], "secret_key");
+        let decoded = jwt.verify(token.split(" ")[1], "fingerprint_customer");
         let username = decoded.username;
 
         if (
